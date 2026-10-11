@@ -4,7 +4,7 @@ This repository stores a protein function prediction CSV and versioned evaluatio
 
 ## Current CSV
 
-- `submission_GO_V25_fusion_048145.csv` — a 28,450-protein, 500-label test prediction file from the earlier V25 + expanded GO direct-mapping fusion. Its historical local selection Macro F1 was 0.481454. The file was generated locally and was not uploaded to the competition platform.
+- `submission_GO_V25_fusion_048145.csv` — a 28,450-protein, 500-label test prediction file from the earlier V25 + expanded GO direct-mapping fusion. Its historical local selection Macro F1 was 0.481454. The file was generated locally and was not uploaded to the competition platform. See its [dedicated release](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v25-go-v1.0.0).
 
 ## Evaluation release
 
