@@ -16,10 +16,10 @@
 
 ### 创作与迭代历程
 
-1. **V25 基线：**锁定候选模型在本地开发评估中得分为 0.434802。另一个 35M 融合候选得分为 0.435132，但未通过晋级门槛。
-2. **V25 + 扩展 GO：**将扩展 GO 直接映射与 V25 组合，通过校准后采用 50/50 融合，在历史选择集上的 Macro F1 为 0.481454；测试集 CSV 发布在 [V1.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v1.0.0)。
-3. **V25 + GO + V30 Pro：**在 V25 + GO 基础上加入升级后的 V30 Pro 预测，并采用经校准的 0.10 权重，所有标签的 Macro F1 达到 0.486082。原始 V30 模型没有参与该融合。此版本的测试集预测并未生成，[V2.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v2.0.0) 仅包含评估资料。
-4. **V36 受控特征试验：**比较方差筛选 GO、标签感知 GO、标签感知 GO 加序列编码三条路线。路线 B 得到最高 pilot CV Macro F1 0.387896，比同轮路线 A 高 0.003406，但未达到预设 +0.01 晋级门槛。该轮提前停止，没有做融合或 selection 评估；详见 [V3.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v3.0.0)。
+1. <strong>V25 基线：</strong> 锁定候选模型在本地开发评估中得分为 0.434802。另一个 35M 融合候选得分为 0.435132，但未通过晋级门槛。
+2. <strong>V25 + 扩展 GO：</strong> 将扩展 GO 直接映射与 V25 组合，通过校准后采用 50/50 融合，在历史选择集上的 Macro F1 为 0.481454；测试集 CSV 发布在 [V1.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v1.0.0)。
+3. <strong>V25 + GO + V30 Pro：</strong> 在 V25 + GO 基础上加入升级后的 V30 Pro 预测，并采用经校准的 0.10 权重，所有标签的 Macro F1 达到 0.486082。原始 V30 模型没有参与该融合。此版本的测试集预测并未生成，[V2.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v2.0.0) 仅包含评估资料。
+4. <strong>V36 受控特征试验：</strong> 比较方差筛选 GO、标签感知 GO、标签感知 GO 加序列编码三条路线。路线 B 得到最高 pilot CV Macro F1 0.387896，比同轮路线 A 高 0.003406，但未达到预设 +0.01 晋级门槛。该轮提前停止，没有做融合或 selection 评估；详见 [V3.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v3.0.0)。
 
 ### 数据格式与评估说明
 
