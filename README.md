@@ -13,7 +13,7 @@
 | [V1.0.0 — V25 + GO 测试集预测](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v1.0.0) | 28,450 条蛋白质 × 500 个二元标签的预测 CSV、校验清单和 SHA-256 校验值 | 0.481454 |
 | [V2.0.0 — V25 + GO + V30 Pro 融合评估](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v2.0.0) | 开发报告、完整验证 JSON 和逐标签指标；没有 V2 测试集预测 CSV | 0.486082 |
 | [V3.0.0 — V36 受控 GO 特征试验](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v3.0.0) | 三折双种子 pilot 指标、预设 protocol 和验证报告；未通过晋级门槛，没有模型或测试集 CSV | 0.387896（pilot CV；不可与上方 selection 分数直接比较） |
-| [V4.0.0 — V41-PairGO GO 优化预测](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v4.0.0) | 28,450 × 500 预测 CSV 和 SHA-256 格式清单 | 未报告独立评估分数 |
+| [V4.0.0 — V41-PairGO GO 优化预测](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v4.0.0) | 28,450 × 500 预测 CSV 和 SHA-256 格式清单 | 62.1406（评估口径未注明） |
 
 ### 创作与迭代历程
 
@@ -21,13 +21,13 @@
 2. <strong>V25 + 扩展 GO：</strong> 将扩展 GO 直接映射与 V25 组合，通过校准后采用 50/50 融合，在历史选择集上的 Macro F1 为 0.481454；测试集 CSV 发布在 [V1.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v1.0.0)。
 3. <strong>V25 + GO + V30 Pro：</strong> 在 V25 + GO 基础上加入升级后的 V30 Pro 预测，并采用经校准的 0.10 权重，所有标签的 Macro F1 达到 0.486082。原始 V30 模型没有参与该融合。此版本的测试集预测并未生成，[V2.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v2.0.0) 仅包含评估资料。
 4. <strong>V36 受控特征试验：</strong> 比较方差筛选 GO、标签感知 GO、标签感知 GO 加序列编码三条路线。路线 B 得到最高 pilot CV Macro F1 0.387896，比同轮路线 A 高 0.003406，但未达到预设 +0.01 晋级门槛。该轮提前停止，没有做融合或 selection 评估；详见 [V3.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v3.0.0)。
-5. <strong>V41-PairGO：</strong> 以 `pairgogpt_v2_pi.csv` 为主要预测结果，并对部分高置信度项目使用 GO、V30 Pro 和 V40 输出进行修正。V4.0.0 发布 CSV 和格式清单；目前未报告独立评估分数。
+5. <strong>V41-PairGO：</strong> 以 `pairgogpt_v2_pi.csv` 为主要预测结果，并对部分高置信度项目使用 GO、V30 Pro 和 V40 输出进行修正。V4.0.0 发布 CSV 和格式清单，报告分数为 62.1406；评估口径和量纲尚未注明，因此不将其标注为 Macro F1。
 
 ### 数据格式与评估说明
 
 - V1 CSV 的列名为 `protein_id` 和 `label_0` 至 `label_499`，包含 28,450 行蛋白质记录及 500 个二元 `0`/`1` 预测。Release 中的 Manifest 记录 SHA-256 和格式校验信息。
 - V1、V2 的 Macro F1 均为本地历史选择集结果（5,542 条记录）。该选择集在开发期间被重复使用，因此结果属于探索性比较，不是独立盲测。
-- V3 的 0.387896 是 V36 三折双种子 pilot CV 结果；路线比较使用了该轮 CV 结果，分组按精确序列而非同源簇进行。它与 V1、V2 的历史 selection 分数口径不同，不可直接比较，也不构成独立确认。
+- V3 的 0.387896 是 V36 三折双种子 pilot CV 结果；路线比较使用了该轮 CV 结果，分组按精确序列而非同源簇进行。它与 V1、V2 的历史 selection 分数口径不同，不可直接比较，也不构成独立确认。\n- V4 报告分数 62.1406；评估口径和量纲尚未注明，因此不将其视为 Macro F1 或独立核实的比赛成绩。
 - 校准使用了 1,683 条记录；记录的融合交叉拟合分数不等同于端到端的折外验证。
 - 未读取审计标签。V1 CSV 尚未上传到比赛平台，因此没有平台得分。
 - GO 预测器使用了外部 GO 注释，其是否符合比赛规则尚未确认。使用基于 GO 的模型前，请向赛事组织方核实。
@@ -46,7 +46,7 @@ This repository documents four milestones in the project. Release versions use a
 | [V1.0.0 — V25 + GO test predictions](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v1.0.0) | Test CSV for 28,450 proteins × 500 binary labels, checksum, and validation manifest | 0.481454 |
 | [V2.0.0 — V25 + GO + V30 Pro fusion evaluation](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v2.0.0) | Development report, validation JSON, and per-label metrics; no V2 test CSV | 0.486082 |
 | [V3.0.0 — V36 controlled GO feature pilot](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v3.0.0) | Three-fold, two-seed pilot metrics, protocol, and validation report; gate not passed, no model or test CSV | 0.387896 (pilot CV; not directly comparable to selection scores) |
-| [V4.0.0 — V41-PairGO GO-optimized predictions](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v4.0.0) | 28,450 × 500 prediction CSV and SHA-256 format manifest | No independent evaluation score reported |
+| [V4.0.0 — V41-PairGO GO-optimized predictions](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v4.0.0) | 28,450 × 500 prediction CSV and SHA-256 format manifest | 62.1406 (evaluation context not specified) |
 
 ## Development history
 
@@ -54,7 +54,7 @@ This repository documents four milestones in the project. Release versions use a
 2. **V25 + expanded GO:** expanded GO direct mapping was evaluated alongside V25. A calibration-selected 50/50 fusion reached 0.481454 on the historical selection set. Its full test-prediction CSV is the artifact in [V1.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v1.0.0).
 3. **V25 + GO + V30 Pro:** the V25 + GO result was used as the base and upgraded V30 Pro predictions were added with a calibrated 0.10 fusion weight. The all-label result reached 0.486082; the original V30 model was not used. This milestone is documented in [V2.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v2.0.0). V2 test predictions were not generated, so this release contains evaluation artifacts only.
 4. **V36 controlled feature pilot:** variance-selected GO, label-aware GO, and label-aware GO plus sequence embedding were compared. Route B reached the best pilot CV Macro F1 of 0.387896, +0.003406 over route A, below the predeclared +0.01 promotion gate. The branch stopped without fusion or a selection evaluation; see [V3.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v3.0.0).
-5. **V41-PairGO:** `pairgogpt_v2_pi.csv` is the primary prediction artifact, with limited corrections to selected high-confidence entries using GO, V30 Pro, and V40 outputs. V4.0.0 publishes the CSV and format manifest; no independent evaluation score is reported.
+5. **V41-PairGO:** `pairgogpt_v2_pi.csv` is the primary prediction artifact, with limited corrections to selected high-confidence entries using GO, V30 Pro, and V40 outputs. V4.0.0 publishes the CSV and format manifest with a reported score of 62.1406; its evaluation context and scale were not specified, so it is not labeled as Macro F1.
 
 ## Data format
 
@@ -68,7 +68,7 @@ The V1.0.0 and V4.0.0 CSVs use the header `protein_id` followed by `label_0` thr
 - No audit labels were read. The V1 CSV was generated but was not uploaded to the competition platform; no platform score is available.
 - The GO predictor was trained using external GO annotations. Whether that use is allowed by the competition rules has not been confirmed. Check with the organizers before submitting a GO-based model.
 - The V2 score is an evaluation result, not the score of the downloadable V1 CSV. The V2 release contains reports and metrics, not model checkpoints; no model checkpoints are published in this repository.
-- V3 did not pass its promotion gate and contains no V36 checkpoint or test-prediction CSV.
+- V3 did not pass its promotion gate and contains no V36 checkpoint or test-prediction CSV.\n- V4 reports a score of 62.1406; its evaluation context and scale were not specified, so it is not treated as Macro F1 or an independently verified competition result.
 - V4.0.0 publishes a prediction artifact, but no independent validation score or competition result is reported for it.
 
 ## Repository contents
