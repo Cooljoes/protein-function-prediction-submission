@@ -27,7 +27,8 @@
 
 - V1 CSV 的列名为 `protein_id` 和 `label_0` 至 `label_499`，包含 28,450 行蛋白质记录及 500 个二元 `0`/`1` 预测。Release 中的 Manifest 记录 SHA-256 和格式校验信息。
 - V1、V2 的 Macro F1 均为本地历史选择集结果（5,542 条记录）。该选择集在开发期间被重复使用，因此结果属于探索性比较，不是独立盲测。
-- V3 的 0.387896 是 V36 三折双种子 pilot CV 结果；路线比较使用了该轮 CV 结果，分组按精确序列而非同源簇进行。它与 V1、V2 的历史 selection 分数口径不同，不可直接比较，也不构成独立确认。\n- V4 报告分数 62.1406；评估口径和量纲尚未注明，因此不将其视为 Macro F1 或独立核实的比赛成绩。
+- V3 的 0.387896 是 V36 三折双种子 pilot CV 结果；路线比较使用了该轮 CV 结果，分组按精确序列而非同源簇进行。它与 V1、V2 的历史 selection 分数口径不同，不可直接比较，也不构成独立确认。
+- V4 报告分数 62.1406；评估口径和量纲尚未注明，因此不将其视为 Macro F1 或独立核实的比赛成绩。
 - 校准使用了 1,683 条记录；记录的融合交叉拟合分数不等同于端到端的折外验证。
 - 未读取审计标签。V1 CSV 尚未上传到比赛平台，因此没有平台得分。
 - GO 预测器使用了外部 GO 注释，其是否符合比赛规则尚未确认。使用基于 GO 的模型前，请向赛事组织方核实。
@@ -68,7 +69,8 @@ The V1.0.0 and V4.0.0 CSVs use the header `protein_id` followed by `label_0` thr
 - No audit labels were read. The V1 CSV was generated but was not uploaded to the competition platform; no platform score is available.
 - The GO predictor was trained using external GO annotations. Whether that use is allowed by the competition rules has not been confirmed. Check with the organizers before submitting a GO-based model.
 - The V2 score is an evaluation result, not the score of the downloadable V1 CSV. The V2 release contains reports and metrics, not model checkpoints; no model checkpoints are published in this repository.
-- V3 did not pass its promotion gate and contains no V36 checkpoint or test-prediction CSV.\n- V4 reports a score of 62.1406; its evaluation context and scale were not specified, so it is not treated as Macro F1 or an independently verified competition result.
+- V3 did not pass its promotion gate and contains no V36 checkpoint or test-prediction CSV.
+- V4 reports a score of 62.1406; its evaluation context and scale were not specified, so it is not treated as Macro F1 or an independently verified competition result.
 - V4.0.0 publishes a prediction artifact, but no independent validation score or competition result is reported for it.
 
 ## Repository contents
