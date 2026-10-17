@@ -1,0 +1,13 @@
+模型,信息来源,honest Macro-F1
+k-mer 岭回归,序列片段,31.12
+MLP（ESM2 最后层）,通用语言模型,37.79
+MLP（ESM2 最后层 + 中间层）,通用语言模型,39.10
+条件 MLP / 边际 MLP,通用语言模型 + 标签层级,39.60 / 39.65
+kNN（ESM2）,通用语言模型,40.54
+岭回归头（ProteInfer 嵌入）,注释预训练模型,40.67
+MMseqs2 同源 kNN,同源检索,41.91
+kNN（GO-GPT 分数空间）,注释预训练模型,43.14
+kNN（ProteInfer 嵌入）,注释预训练模型,43.53
+LightGBM 配对堆叠 stack_depth,11 个基础模型,47.32
+MLP 堆叠 mlpstack,11 个基础模型,45.76
+基础层 blend_sm,2:1 混合,47.69

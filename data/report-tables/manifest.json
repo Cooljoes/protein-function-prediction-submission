@@ -1,0 +1,118 @@
+{
+  "source": {
+    "title": "基于蛋白质语言模型与多层堆叠集成的蛋白质功能多标签预测",
+    "release_asset_url": "https://github.com/Cooljoes/protein-function-prediction-submission/releases/download/v5.0.0/protein_function_prediction_report.docx",
+    "sha256": "3daf64232a01a36a92f5c5c9234edde906e4c7d2f58a4613b883e748c6e4e3ab"
+  },
+  "extraction": "Original table cell text exported as UTF-8 CSV, first row retained as headers.",
+  "tables": [
+    {
+      "number": 1,
+      "title": "Feature Groups and Their Roles",
+      "caption": "表 1  特征变量一览",
+      "section": "4 特征变量的选取与数据分析方法",
+      "subsection": "4.1 特征变量",
+      "file": "data/report-tables/table-01-feature-groups.csv",
+      "rows_including_header": 7,
+      "columns": 4,
+      "sha256": "ccc8a02f9dab7702684cfebd5540755efdd6bb5d03f5586a93f92b8024347483",
+      "chapter": "docs/report/04-features-and-methods.md"
+    },
+    {
+      "number": 2,
+      "title": "Modeling and Decision Methods",
+      "caption": "表 2  采用的数据分析方法",
+      "section": "4 特征变量的选取与数据分析方法",
+      "subsection": "4.3 数据分析方法",
+      "file": "data/report-tables/table-02-analysis-methods.csv",
+      "rows_including_header": 9,
+      "columns": 3,
+      "sha256": "2eb692d81a4423bcc4a4f045a4f7c83f554c558f53e894151b0b772cac321f63",
+      "chapter": "docs/report/04-features-and-methods.md"
+    },
+    {
+      "number": 3,
+      "title": "Dataset Subsets and Evaluation Roles",
+      "caption": "表 3  数据集划分",
+      "section": "5 数据的整理",
+      "subsection": "5.4 数据集划分",
+      "file": "data/report-tables/table-03-dataset-subsets.csv",
+      "rows_including_header": 6,
+      "columns": 3,
+      "sha256": "ba996a7e97735378530cca1d82e571f5e61a59d476c92250f4363170d1593476",
+      "chapter": "docs/report/05-data-preparation.md"
+    },
+    {
+      "number": 4,
+      "title": "Descriptive Statistics for the Training and Test Sets",
+      "caption": "表 4  数据描述统计",
+      "section": "6 数据的探索性分析",
+      "subsection": "6.1 描述统计",
+      "file": "data/report-tables/table-04-descriptive-statistics.csv",
+      "rows_including_header": 9,
+      "columns": 3,
+      "sha256": "fe8447998008ff48f860ed3e8263d9930fdc7603eba4a33eb51805866dfb3e64",
+      "chapter": "docs/report/06-exploratory-analysis.md"
+    },
+    {
+      "number": 5,
+      "title": "Five-Fold Honest Macro-F1 of Individual Models and the Base Ensemble",
+      "caption": "表 5  单一模型与基础层的 honest Macro-F1（5 折）",
+      "section": "7 分析模型的构建与评估",
+      "subsection": "7.1 基础模型与基础层",
+      "file": "data/report-tables/table-05-base-model-results.csv",
+      "rows_including_header": 13,
+      "columns": 3,
+      "sha256": "717d0fae6f7e98b76fee13865acb6b1b3def878b9acfbe05eb3583ed3874ed26",
+      "chapter": "docs/report/07-modeling-and-evaluation.md"
+    },
+    {
+      "number": 6,
+      "title": "Incremental Model Ablations on Dev and Clean Rows",
+      "caption": "表 6  逐步改进的消融结果（dev / 干净行，honest Macro-F1）",
+      "section": "7 分析模型的构建与评估",
+      "subsection": "7.3 配对 stacker 与最终模型",
+      "file": "data/report-tables/table-06-model-ablations.csv",
+      "rows_including_header": 10,
+      "columns": 5,
+      "sha256": "89e73536bbd89561b59c7332bd4a13fe7def9404840f49166706ea4ea7f3045e",
+      "chapter": "docs/report/07-modeling-and-evaluation.md"
+    },
+    {
+      "number": 7,
+      "title": "Key Model Results Across Evaluation Subsets and the Leaderboard",
+      "caption": "表 7  关键版本在不同验证口径下的表现",
+      "section": "7 分析模型的构建与评估",
+      "subsection": "7.4 模型对比与测试集验证",
+      "file": "data/report-tables/table-07-evaluation-comparison.csv",
+      "rows_including_header": 6,
+      "columns": 5,
+      "sha256": "0a572d6a217dd4489807a2d2983dfdbe2d0deb5907e2b4265bd28c9fe852d799",
+      "chapter": "docs/report/07-modeling-and-evaluation.md"
+    },
+    {
+      "number": 8,
+      "title": "Public Pretrained Models and Third-Party Code",
+      "caption": "表 8  公开预训练权重与第三方代码",
+      "section": "附录 A 外部资源清单",
+      "subsection": null,
+      "file": "data/report-tables/table-08-external-resources.csv",
+      "rows_including_header": 7,
+      "columns": 4,
+      "sha256": "e72d2f8c70b3266d3c65428d675e0aa85f7b0e5786c8888d7fb73d11448feb9c",
+      "chapter": "docs/report/appendix-a-resources.md"
+    },
+    {
+      "number": 9,
+      "title": "Pipeline Stages, Scripts, and Outputs",
+      "caption": "表 9  流程步骤与对应脚本",
+      "section": "附录 B 源码结构",
+      "subsection": null,
+      "file": "data/report-tables/table-09-pipeline-scripts.csv",
+      "rows_including_header": 12,
+      "columns": 3,
+      "sha256": "0c893a76bc98a6338dca52bf6545834b35c6200329a3ed41ad7b4ff1858f2a23",
+      "chapter": "docs/report/appendix-b-source-structure.md"
+    }
+  ]
+}

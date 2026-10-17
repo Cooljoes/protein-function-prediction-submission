@@ -1,0 +1,170 @@
+{
+  "source": {
+    "title": "基于蛋白质语言模型与多层堆叠集成的蛋白质功能多标签预测",
+    "release_asset_url": "https://github.com/Cooljoes/protein-function-prediction-submission/releases/download/v5.0.0/protein_function_prediction_report.docx",
+    "sha256": "3daf64232a01a36a92f5c5c9234edde906e4c7d2f58a4613b883e748c6e4e3ab"
+  },
+  "extraction": "Original embedded PNG bytes, without cropping, resizing, or relabeling.",
+  "figures": [
+    {
+      "number": 1,
+      "title": "Overall Modeling Workflow",
+      "caption": "图 1  总体技术路线",
+      "section": "3 分析方案的设计",
+      "subsection": "3.1 总体技术路线",
+      "file": "assets/figures/report/figure-01-overall-workflow.png",
+      "source_media": "word/media/image1.png",
+      "dimensions_px": [
+        1207,
+        935
+      ],
+      "bytes": 165426,
+      "sha256": "7219ab6d6e6870a9a5c1bac3e01a079b413ff487be748b60a2ca5aab987c1594",
+      "chapter": "docs/report/03-analysis-design.md"
+    },
+    {
+      "number": 2,
+      "title": "Sequence Length Distributions in the Training and Test Sets",
+      "caption": "图 2  训练集与测试集的序列长度分布",
+      "section": "6 数据的探索性分析",
+      "subsection": "6.1 描述统计",
+      "file": "assets/figures/report/figure-02-sequence-length-distribution.png",
+      "source_media": "word/media/image2.png",
+      "dimensions_px": [
+        960,
+        510
+      ],
+      "bytes": 35080,
+      "sha256": "7aefeb9e8775cdc725e031d39df8ffc417d8e0360b2e33bf91a7c601ac1e745a",
+      "chapter": "docs/report/06-exploratory-analysis.md"
+    },
+    {
+      "number": 3,
+      "title": "Residue Frequencies in Competition Encoding and Mapped Amino Acids",
+      "caption": "图 3  字母频率：竞赛编码（左）与对应的标准氨基酸（右）",
+      "section": "6 数据的探索性分析",
+      "subsection": "6.2 序列字母编码",
+      "file": "assets/figures/report/figure-03-letter-and-amino-acid-frequency.png",
+      "source_media": "word/media/image3.png",
+      "dimensions_px": [
+        1080,
+        420
+      ],
+      "bytes": 27309,
+      "sha256": "e2243c888ad90c1175b35afd2103df91ac30cea65fe8a7977aa030c40fedb20c",
+      "chapter": "docs/report/06-exploratory-analysis.md"
+    },
+    {
+      "number": 4,
+      "title": "Distribution of Labels per Protein",
+      "caption": "图 4  每个蛋白的标签数分布",
+      "section": "6 数据的探索性分析",
+      "subsection": "6.3 标签分布与标签结构",
+      "file": "assets/figures/report/figure-04-labels-per-protein.png",
+      "source_media": "word/media/image4.png",
+      "dimensions_px": [
+        960,
+        480
+      ],
+      "bytes": 25473,
+      "sha256": "0c4d07b47fc719aa08d1a7825a87c398396483d7fec6f3292388c81b6a46b36b",
+      "chapter": "docs/report/06-exploratory-analysis.md"
+    },
+    {
+      "number": 5,
+      "title": "Positive Rates of the 500 Labels",
+      "caption": "图 5  500 个标签的阳性率（长尾分布）",
+      "section": "6 数据的探索性分析",
+      "subsection": "6.3 标签分布与标签结构",
+      "file": "assets/figures/report/figure-05-label-positive-rate.png",
+      "source_media": "word/media/image5.png",
+      "dimensions_px": [
+        960,
+        480
+      ],
+      "bytes": 35308,
+      "sha256": "f8143ebf042d7ced4bb8768ff848947fc3fc07ffecb6a81957e6bd7301bbee12",
+      "chapter": "docs/report/06-exploratory-analysis.md"
+    },
+    {
+      "number": 6,
+      "title": "Correlations Among the 40 Most Frequent Labels",
+      "caption": "图 6  出现最频繁的 40 个标签之间的相关系数",
+      "section": "6 数据的探索性分析",
+      "subsection": "6.3 标签分布与标签结构",
+      "file": "assets/figures/report/figure-06-top-40-label-correlations.png",
+      "source_media": "word/media/image6.png",
+      "dimensions_px": [
+        780,
+        660
+      ],
+      "bytes": 31847,
+      "sha256": "d35364053f4199d7c7a1011a81ad0135818876cf571c7f3884c171dfac2f7ff1",
+      "chapter": "docs/report/06-exploratory-analysis.md"
+    },
+    {
+      "number": 7,
+      "title": "Distribution of Best Homology Hit Identity",
+      "caption": "图 7  最佳同源命中一致度分布",
+      "section": "6 数据的探索性分析",
+      "subsection": "6.4 同源结构",
+      "file": "assets/figures/report/figure-07-best-homology-hit-identity.png",
+      "source_media": "word/media/image7.png",
+      "dimensions_px": [
+        960,
+        480
+      ],
+      "bytes": 29346,
+      "sha256": "d2a40ea048dbe4e6a6c4f21704a56d35bb2e11427b41ba761e66bcf54f2e9dd1",
+      "chapter": "docs/report/06-exploratory-analysis.md"
+    },
+    {
+      "number": 8,
+      "title": "Honest Macro-F1 Across Model Development Stages",
+      "caption": "图 8  模型逐步演进的 honest Macro-F1",
+      "section": "7 分析模型的构建与评估",
+      "subsection": "7.3 配对 stacker 与最终模型",
+      "file": "assets/figures/report/figure-08-model-development-macro-f1.png",
+      "source_media": "word/media/image8.png",
+      "dimensions_px": [
+        990,
+        630
+      ],
+      "bytes": 49705,
+      "sha256": "59e06612c90e2f5c13272eee671b158f6cdf8a9ad9d4fc627ac448e0de2d94fb",
+      "chapter": "docs/report/07-modeling-and-evaluation.md"
+    },
+    {
+      "number": 9,
+      "title": "Mean Label F1 by Label Prevalence Group",
+      "caption": "图 9  按标签阳性率分组的平均 F1",
+      "section": "7 分析模型的构建与评估",
+      "subsection": "7.5 分析结果的解释",
+      "file": "assets/figures/report/figure-09-f1-by-label-prevalence.png",
+      "source_media": "word/media/image9.png",
+      "dimensions_px": [
+        960,
+        480
+      ],
+      "bytes": 32319,
+      "sha256": "b146e9803f8b006631188ebdca78671e6088e8dc4182a6a556afab0bcb01ab6b",
+      "chapter": "docs/report/07-modeling-and-evaluation.md"
+    },
+    {
+      "number": 10,
+      "title": "Mean Per-Protein F1 by Best Homology Hit Identity",
+      "caption": "图 10  按最佳同源命中一致度分组的每蛋白平均 F1",
+      "section": "7 分析模型的构建与评估",
+      "subsection": "7.5 分析结果的解释",
+      "file": "assets/figures/report/figure-10-f1-by-homology-identity.png",
+      "source_media": "word/media/image10.png",
+      "dimensions_px": [
+        960,
+        480
+      ],
+      "bytes": 33054,
+      "sha256": "ff98ba7c46f3a1e1c415ecf6a413e75516d6a01dd66be7d6caeebc231b99533c",
+      "chapter": "docs/report/07-modeling-and-evaluation.md"
+    }
+  ]
+}

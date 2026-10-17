@@ -1,0 +1,7 @@
+资源,来源,许可,用途
+ESM2-650M,facebook/esm2_t33_650M_UR50D,MIT,通用蛋白质语言模型嵌入
+ESM2-3B（前 30 层）,facebook/esm2_t36_3B_UR50D,MIT,GO-GPT v1 的蛋白编码器
+GO-GPT v1,wanglab/gogpt,Apache-2.0,生成式 GO 术语打分
+ProteInfer ×4,"samirchar/proteinfertorch-{go,ec}-{random,clustered}",Apache-2.0,GO / EC logit 与嵌入
+GO-GPT 模型结构代码,github.com/bowang-lab/BioReason-Pro（单个文件）,MIT,加载 GO-GPT 解码器
+MMseqs2,github.com/soedinglab/MMseqs2,GPL-3.0,训练集内部同源检索

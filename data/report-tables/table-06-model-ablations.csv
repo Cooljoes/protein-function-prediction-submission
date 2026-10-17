@@ -1,0 +1,10 @@
+版本,改动,dev,干净行,增量
+blend_sm,基础层,47.69,47.59,—
+gogptfus_v2_nt_k5,+ GO-GPT 逐标签逻辑回归融合,53.93,53.83,+6.24
+gogptfus_v2_ntpi_k5,+ ProteInfer（GO 随机划分）logit,56.02,55.94,+2.09
+pairgogpt_v2_pi,+ LightGBM 配对 stacker（含标签结构）,60.39,60.32,+4.37
+pid,+ ProteInfer logit 直接进入 stacker,62.10,62.05,+1.71
+pid4,+ 全部 4 个 ProteInfer 模型,62.15,62.10,+0.05
+pid4rs,+ 岭回归头 + 蛋白内形状特征,62.29,62.24,+0.14
+all,+ 全部基础模型 + ProteInfer kNN,62.66,62.61,+0.37
+allbag2（最终）,2 个随机种子平均,62.72,62.68,+0.06

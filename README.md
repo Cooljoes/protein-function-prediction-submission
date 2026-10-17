@@ -8,6 +8,23 @@ The final submission is [`pairgogpt_v2_allkbag2.csv`](https://github.com/Cooljoe
 
 [Download V5.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v5.0.0) · [Analysis report](https://github.com/Cooljoes/protein-function-prediction-submission/releases/download/v5.0.0/protein_function_prediction_report.docx) · [Source archive](https://github.com/Cooljoes/protein-function-prediction-submission/releases/download/v5.0.0/protein_function_prediction_source.zip)
 
+## Report and repository guide
+
+Explore the original report directly on GitHub: [chapter guide](docs/README.md) · [all 10 figures](docs/figures.md) · [all 9 tables](docs/tables.md) · [downloadable table data](data/report-tables/README.md).
+
+```text
+README.md                    Project overview and current V5 result
+docs/
+  README.md                  Report navigation and version context
+  report/                    Abstract, chapters 1–8, references, appendices
+  figures.md                 Complete illustrated gallery
+  tables.md                  All report tables rendered for GitHub
+assets/figures/report/        10 original PNG figures and provenance manifest
+data/report-tables/          9 UTF-8 CSV tables and provenance manifest
+```
+
+The chapter pages retain the report's Chinese text, preceded by short English summaries. Original figures and tables document the historical `allbag2` analysis; the current V5 artifact is the separately supplied `allkbag2` CSV described above.
+
 ## Task and data
 
 | Item | Description |
@@ -66,6 +83,14 @@ The local results below come from the analysis report and the source archive's `
 The previous PairGO submission recorded **62.1406** on the leaderboard. The final supplied CSV is recorded at **64.3818**, an increase of **2.2412 points**. Exact leaderboard scores are supplied by the project owner; this publication did not perform a new leaderboard query.
 
 **Artifact history:** the original report and source archive describe `allbag2` as their final submission and associate it with the earlier recorded 64.38/64.3818 result. Their bundled CSV differs from `allkbag2`. For V5.0.0, the owner explicitly selected the separately supplied `allkbag2` file and confirmed 64.3818 as its score. Use the standalone V5 CSV and its checksum for the current final artifact; the report and source archive are preserved as historical materials.
+
+### Results in the original report
+
+[![Figure 8 — Model development in the historical report](assets/figures/report/figure-08-model-development-macro-f1.png)](docs/report/07-modeling-and-evaluation.md)
+
+*Figure 8. Local honest Macro-F1 across development stages. The original chart ends at `allbag2` and retains its historical leaderboard annotations; it is not a new evaluation of the V5 `allkbag2` file.*
+
+See the [complete figure gallery](docs/figures.md) for the workflow, sequence and label distributions, correlations, homology structure, and performance by subgroup.
 
 ## Evaluation protocol
 
@@ -126,6 +151,14 @@ This table displays scores on a 0–100 scale; earlier release titles may use th
 
 [下载 V5.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v5.0.0) · [数智分析报告](https://github.com/Cooljoes/protein-function-prediction-submission/releases/download/v5.0.0/protein_function_prediction_report.docx) · [源码资料包](https://github.com/Cooljoes/protein-function-prediction-submission/releases/download/v5.0.0/protein_function_prediction_source.zip)
 
+## 报告与仓库导航
+
+直接在 GitHub 阅读：[报告章节目录](docs/README.md) · [全部 10 张图](docs/figures.md) · [全部 9 张表](docs/tables.md) · [表格 CSV 数据](data/report-tables/README.md)。
+
+`docs/report/` 按报告顺序整理摘要、第 1–8 章、参考文献及附录；每页先提供英文概述，再保留中文正文。`assets/figures/report/` 存放提取的原始 PNG，`data/report-tables/` 存放原始表格的 CSV，并附来源与校验记录。
+
+原图表记录报告中的历史 `allbag2` 方案；当前 V5 最终结果仍以本次单独提供的 `allkbag2` 为准。
+
 ## 任务与数据
 
 | 项目 | 说明 |
@@ -149,6 +182,12 @@ This table displays scores on a 0–100 scale; earlier release titles may use th
 6. <strong>双种子平均与逐标签决策。</strong> `allkbag2` 在此前 `allbag2` 的 15 项预测输入上加入 GO-GPT 分数空间 kNN，平均两个种子的结果，再应用各标签的阈值。
 
 文件名 `pairgogpt_v2_*` 中的 `v2` 表示本地流程迭代；归档方案实际使用的预训练模型为 GO-GPT v1。
+
+### 报告中的总体技术路线
+
+[![图 1 总体技术路线](assets/figures/report/figure-01-overall-workflow.png)](docs/report/03-analysis-design.md)
+
+*图 1 保留报告原始的 15 项模型输入与 62.72 本地成绩，对应历史 `allbag2` 流程；当前 `allkbag2` 增加了 GO-GPT 分数空间 kNN 输入。*
 
 ## 创作历程与结果
 
