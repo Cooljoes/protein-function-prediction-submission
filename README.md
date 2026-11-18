@@ -8,14 +8,31 @@ The final submission is [`pairgogpt_v2_allkbag2.csv`](https://github.com/Cooljoe
 
 [Download V5.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v5.0.0) · [Analysis report](https://github.com/Cooljoes/protein-function-prediction-submission/releases/download/v5.0.0/protein_function_prediction_report.docx) · [Source archive](https://github.com/Cooljoes/protein-function-prediction-submission/releases/download/v5.0.0/protein_function_prediction_source.zip)
 
+## Validate a downloaded submission
+
+Use the standard-library checker with Python 3.11 or newer:
+
+```bash
+python3 tools/validate_submission.py /path/to/pairgogpt_v2_allkbag2.csv --json
+```
+
+It checks the 500-label schema, 28,450 rows, unique/nonempty protein IDs, and exact binary values. Optional flags verify template ID order and SHA-256. See the [maintenance and validation guide](docs/maintenance.md) for commands, artifact hashes, result provenance, and reproduction limits. [Contributing](CONTRIBUTING.md) explains how to run the focused regression checks.
+
+[![Submission validation](https://github.com/Cooljoes/protein-function-prediction-submission/actions/workflows/submission-validation.yml/badge.svg?branch=main)](https://github.com/Cooljoes/protein-function-prediction-submission/actions/workflows/submission-validation.yml)
+
 ## Report and repository guide
 
 Explore the original report directly on GitHub: [chapter guide](docs/README.md) · [all 10 figures](docs/figures.md) · [all 9 tables](docs/tables.md) · [downloadable table data](data/report-tables/README.md).
 
 ```text
 README.md                    Project overview and current V5 result
+CONTRIBUTING.md              Maintenance workflow and focused checks
+tools/validate_submission.py Streaming CSV, template, and checksum validation
+tests/                      Standard-library checker regression tests
+.github/workflows/          Lightweight validation CI
 docs/
   README.md                  Report navigation and version context
+  maintenance.md             Validation commands and artifact provenance
   report/                    Abstract, chapters 1–8, references, appendices
   figures.md                 Complete illustrated gallery
   tables.md                  All report tables rendered for GitHub
@@ -150,6 +167,16 @@ This table displays scores on a 0–100 scale; earlier release titles may use th
 最终文件为 [`pairgogpt_v2_allkbag2.csv`](https://github.com/Cooljoes/protein-function-prediction-submission/releases/download/v5.0.0/pairgogpt_v2_allkbag2.csv)，包含 28,450 条蛋白质记录和 500 个二元标签。按报告采用的 Macro-F1 × 100 口径，64.3818 对应 0–1 标度的 0.643818。项目所有者于 2026-10-17 明确确认了本次发布的文件及其成绩。
 
 [下载 V5.0.0](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v5.0.0) · [数智分析报告](https://github.com/Cooljoes/protein-function-prediction-submission/releases/download/v5.0.0/protein_function_prediction_report.docx) · [源码资料包](https://github.com/Cooljoes/protein-function-prediction-submission/releases/download/v5.0.0/protein_function_prediction_source.zip)
+
+## 校验下载后的提交文件
+
+使用 Python 3.11 或更新版本，直接运行仅依赖标准库的校验工具：
+
+```bash
+python3 tools/validate_submission.py /你的路径/pairgogpt_v2_allkbag2.csv --json
+```
+
+默认检查 500 个标签、28,450 行、ID 非空且唯一，以及标签值严格为 `0` 或 `1`；也支持模板 ID 顺序和 SHA-256 校验。完整命令、两个历史产物的区别、成绩来源与复现范围见[维护与验证指南](docs/maintenance.md)。参与后续修改请参阅[贡献说明](CONTRIBUTING.md)。
 
 ## 报告与仓库导航
 

@@ -2,6 +2,10 @@
 
 [Project overview](../README.md) · [Figure gallery](figures.md) · [Report tables](tables.md) · [Table CSVs](../data/report-tables/README.md)
 
+For executable artifact checks, start with [maintenance and validation](maintenance.md). For changes to the checker or documentation, see [contributing](../CONTRIBUTING.md).
+
+需要校验预测文件或整理复现记录时，请先阅读[维护与验证指南](maintenance.md)；修改工具与文档前可参阅[贡献说明](../CONTRIBUTING.md)。
+
 Read the report on GitHub through its abstract, eight chapters, references, and two appendices. Each chapter starts with an English overview followed by the original Chinese text. All 10 embedded figures and 9 tables retain their original numbering.
 
 The original report describes the historical `allbag2` workflow. The current [V5.0.0 release](https://github.com/Cooljoes/protein-function-prediction-submission/releases/tag/v5.0.0) uses the separately supplied `allkbag2` CSV, with the owner-confirmed leaderboard score **64.3818**. Original figure labels and table values are retained.
