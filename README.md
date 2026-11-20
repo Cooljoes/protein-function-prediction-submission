@@ -16,6 +16,8 @@ Use the standard-library checker with Python 3.11 or newer:
 python3 tools/validate_submission.py /path/to/pairgogpt_v2_allkbag2.csv --json
 ```
 
+For an immediately runnable example with no competition data, see the [offline quick start and troubleshooting guide](examples/README.md).
+
 It checks the 500-label schema, 28,450 rows, unique/nonempty protein IDs, and exact binary values. Optional flags verify template ID order and SHA-256. See the [maintenance and validation guide](docs/maintenance.md) for commands, artifact hashes, result provenance, and reproduction limits. [Contributing](CONTRIBUTING.md) explains how to run the focused regression checks.
 
 [![Submission validation](https://github.com/Cooljoes/protein-function-prediction-submission/actions/workflows/submission-validation.yml/badge.svg?branch=main)](https://github.com/Cooljoes/protein-function-prediction-submission/actions/workflows/submission-validation.yml)
@@ -29,6 +31,7 @@ README.md                    Project overview and current V5 result
 CONTRIBUTING.md              Maintenance workflow and focused checks
 tools/validate_submission.py Streaming CSV, template, and checksum validation
 tests/                      Standard-library checker regression tests
+examples/                   Tiny synthetic CSVs and troubleshooting guide
 .github/workflows/          Lightweight validation CI
 docs/
   README.md                  Report navigation and version context
@@ -175,6 +178,8 @@ This table displays scores on a 0–100 scale; earlier release titles may use th
 ```bash
 python3 tools/validate_submission.py /你的路径/pairgogpt_v2_allkbag2.csv --json
 ```
+
+还没有预测文件时，可先运行[离线入门样例与常见错误排查](examples/README.md)，无需下载竞赛数据。
 
 默认检查 500 个标签、28,450 行、ID 非空且唯一，以及标签值严格为 `0` 或 `1`；也支持模板 ID 顺序和 SHA-256 校验。完整命令、两个历史产物的区别、成绩来源与复现范围见[维护与验证指南](docs/maintenance.md)。参与后续修改请参阅[贡献说明](CONTRIBUTING.md)。
 

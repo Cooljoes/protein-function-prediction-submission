@@ -1,6 +1,6 @@
 # Maintenance and validation / 维护与验证
 
-Updated: **2026-11-18**.
+Updated: **2026-11-20**.
 
 This guide provides executable checks for downloaded prediction files and a
 precise map of the published artifacts. The checker uses only the Python standard
@@ -19,6 +19,9 @@ ground-truth labels and evaluation evidence.
 python3 tools/validate_submission.py /path/to/predictions.csv
 python3 tools/validate_submission.py /path/to/predictions.csv --json
 ```
+
+还没有预测文件时，可以直接运行仓库内的[离线合成样例](../examples/README.md)，
+练习格式校验、模板 ID 对齐和错误处理；样例不含竞赛数据。
 
 默认契约如下：
 
@@ -79,6 +82,10 @@ JSON 报告包括 `valid`、`rows`、`labels`、`sha256`、`error_count` 和 `er
 | `1` | 校验失败，可查看错误明细 |
 | `2` | 命令参数无效或文件无法读取 |
 
+使用 `--json` 时，退出码 `0` 或 `1` 对应标准输出中的 JSON 报告；
+退出码 `2` 的错误信息写入标准错误，标准输出为空。自动化程序应先检查退出码，
+再决定解析 JSON 或读取标准错误，避免把文件不存在误报成 JSON 解析失败。
+
 ## 2. 区分两个预测产物
 
 历史分析报告、原源码包和 V5 独立发布文件属于不同的证据来源：
@@ -129,11 +136,11 @@ dev、clean、确认集和排行榜是不同的评估来源。原报告的跨层
 新增工具的回归检查命令：
 
 ```bash
-python3 -m unittest discover -s tests -p 'test_validate_submission.py' -v
+python3 -m unittest discover -s tests -p 'test_*.py' -v
 git diff --check
 ```
 
-本轮在 Linux x86_64 / Python 3.12.14 下实际完成了以下检查：
+2026-11-18 首轮维护在 Linux x86_64 / Python 3.12.14 下完成了以下检查：
 
 | 检查 | 结果与适用范围 |
 | --- | --- |
@@ -143,8 +150,15 @@ git diff --check
 | V5 独立 `allkbag2` | 仅核对现有 Release 的文件名、哈希和 manifest；本轮未对其 CSV 本体重新逐行运行 |
 | 模型训练、排行榜与模型效果 | 本轮未执行或重新核验 |
 
-GitHub Actions 对工具、测试或工作流变更运行 Python 3.11 / 3.12 的同一组检查。
-该工作流只执行校验器的行为测试，使用临时合成数据；不包含模型下载或训练步骤。
+2026-11-20 复查发现，后续两个 PR 新增了 5 项测试，但工作流的路径过滤和测试发现
+仍限定为最早的 `test_validate_submission.py`，因此没有触发或覆盖新增模块。
+本次将触发范围扩展到整个 `tests/` 和 `examples/`，将发现模式改为 `test_*.py`，
+当前可发现 31 项测试。本地 Linux x86_64 / Python 3.12.14 复核中，31 项全部通过；
+合成样例的成功、非二元标签及缺失文件场景分别得到预期退出码 0、1、2。
+
+GitHub Actions 在 Linux（Python 3.11 / 3.12）、macOS 和 Windows（Python 3.12）
+运行完整测试集，并执行带模板的离线样例。该工作流只使用合成数据，
+不包含模型下载或训练步骤。
 
 实际验证结论应同时注明命令、文件 SHA-256、输入类型和执行环境。校验器测试通过
 与 CSV 结构通过分别说明工具行为和文件契约；历史 64.3818 的模型效果仍以其
