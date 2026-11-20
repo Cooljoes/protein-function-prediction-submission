@@ -5,12 +5,14 @@ on:
     branches: [main]
     paths:
       - tools/validate_submission.py
-      - tests/test_validate_submission.py
+      - 'tests/**'
+      - 'examples/**'
       - .github/workflows/submission-validation.yml
   pull_request:
     paths:
       - tools/validate_submission.py
-      - tests/test_validate_submission.py
+      - 'tests/**'
+      - 'examples/**'
       - .github/workflows/submission-validation.yml
   workflow_dispatch:
 
@@ -19,13 +21,21 @@ permissions:
 
 jobs:
   validate:
-    name: Python ${{ matrix.python-version }}
-    runs-on: ubuntu-latest
+    name: Python ${{ matrix.python-version }} / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 5
     strategy:
       fail-fast: false
       matrix:
-        python-version: ['3.11', '3.12']
+        include:
+          - os: ubuntu-latest
+            python-version: '3.11'
+          - os: ubuntu-latest
+            python-version: '3.12'
+          - os: macos-latest
+            python-version: '3.12'
+          - os: windows-latest
+            python-version: '3.12'
     env:
       PYTHONDONTWRITEBYTECODE: '1'
     steps:
@@ -38,4 +48,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Validate submission checker behavior
-        run: python -m unittest discover -s tests -p 'test_validate_submission.py' -v
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Check the offline example against its template
+        run: python tools/validate_submission.py examples/submission.csv --expected-rows 2 --labels 3 --template examples/template.csv --json

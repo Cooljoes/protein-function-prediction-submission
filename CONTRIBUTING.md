@@ -12,11 +12,15 @@ it affects.
 在仓库根目录运行：
 
 ```bash
-python3 -m unittest discover -s tests -p 'test_validate_submission.py' -v
+python3 -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-GitHub Actions 在 Python 3.11 和 3.12 上运行同一组测试。测试使用临时合成 CSV，
-不读取竞赛私有数据，不访问模型接口。
+GitHub Actions 在 Linux 上运行 Python 3.11、3.12，并在 macOS、Windows 上运行
+Python 3.12。每个任务都发现 `tests/` 下全部 `test_*.py` 用例，同时检查
+[离线合成样例](examples/README.md)。测试使用合成 CSV，不需要竞赛数据或模型接口。
+
+新增测试文件请沿用 `test_*.py` 命名。修改 `tests/` 或 `examples/` 下任意文件都会
+触发工作流；不要将测试发现规则缩小到单个文件，否则会遗漏其他模块。
 
 ## 修改约定
 
@@ -37,7 +41,8 @@ GitHub Actions 在 Python 3.11 和 3.12 上运行同一组测试。测试使用�
 ## 提交前检查
 
 ```bash
-python3 -m unittest discover -s tests -p 'test_validate_submission.py' -v
+python3 -m unittest discover -s tests -p 'test_*.py' -v
+python3 tools/validate_submission.py examples/submission.csv --expected-rows 2 --labels 3 --template examples/template.csv --json
 git diff --check
 git diff --stat
 ```
